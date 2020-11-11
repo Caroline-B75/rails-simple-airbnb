@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Simple Airbnb</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="ml-auto d-inline-flex">
+        <form class="form-inline my-2 my-lg-0" data-children-count="1">
+          <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" value="">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <a class="btn btn-outline-primary my-2 my-sm-0 ml-2" href="/flats/new">Add Flat</a>
+      </div>
+    </div>
+</nav>
+
+    <div class="map" style="background-image: url('https://images.unsplash.com/photo-1529408632839-a54952c491e5?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80')"></div>
+
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+      <div class="flat-show-card">
+        <h1><%= @flat.name %></h1>
+        <p class="flat-show-address"><%= @flat.address %></p>
+      </div>
+      <div class="flat-show-card">
+        <h3>A bit more about this flat...</h3>
+        <p><%= @flat.description %></p>
+        <div class="map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=blablabla&amp;zoom=13&amp;scale=2&amp;size=1000x1000&amp;maptype=roadmap&amp;markers=color:red%7Cblablabla&amp;key=AIzaSyBtaHK-BLhBg7TruJu8iKk_wETqZMJM-GY')"></div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="flat-show-card">
+        <h3>Details</h3>
+        <div class="flex">
+          <div class="flex">
+            <i class="fas fa-users mr-2"></i><span> <%= @flat.number_of_guests %></span>
+          </div>
+          <div class="flex ml-3">
+            <i class="fas fa-euro-sign mr-2"></i> <%= @flat.price_per_night %>
+          </div>
+        </div>
+      </div>
+      <div class="flat-show-card">
+        <div class="flex-align">
+          <h6 class="no-mb">Share</h6>
+
+          <div class="flex">
+            <i class="fab fa-facebook-square fa-2x mr-2"></i>
+            <i class="fab fa-twitter-square fa-2x mr-2"></i>
+            <i class="fab fa-pinterest-square fa-2x mr-2"></i>
+            <i class="fa fa-envelope-square fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

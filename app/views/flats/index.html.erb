@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Simple Airbnb</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="ml-auto d-inline-flex">
+        <form class="form-inline my-2 my-lg-0" data-children-count="1">
+          <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" value="">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <a class="btn btn-outline-primary my-2 my-sm-0 ml-2" href="/flats/new">Add Flat</a>
+      </div>
+    </div>
+</nav>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>All our Flats (<%= @flats.count %>)</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-6">
+        <div class="flat-card mr-4 p-4">
+          <div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1568635454645-b0da21651742?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=516&amp;q=80'); height: 300px"></div>
+          <div class="flat-card-content pt-4">
+            <div class="flat-card-title">
+              <h4><%= flat.name %></h4>
+              <p><%= flat.description %></p>
+              <div class="d-inline-flex">
+                <div class="d-inline-flex align-items-center">
+                  <i class="fas fa-users mr-2"></i><span> <%= flat.number_of_guests %></span>
+                </div>
+                <div class="d-inline-flex ml-3 align-items-center">
+                 <i class="fas fa-euro-sign mr-2"></i> <%= flat.price_per_night %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flat-card-actions">
+            <%= link_to "More info", flat_path(flat) %>
+            <a class="ml-3 text-warning" href="/flats/4010/edit">Edit</a>
+            <a data-confirm="Are you sure?" class="ml-3 text-danger" rel="nofollow" data-method="delete" href="/flats/4010">Remove</a>
+          </div>
+
+        </div>
+      </div>
+    <%end%>
+  </div>
